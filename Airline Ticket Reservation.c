@@ -3,9 +3,21 @@
 #include <string.h>
 
 char vuelo[5] = " ";
+int asientos[6][32];
 
+void iniciar_matriz()
+{
+  for(int i=0; i<32; i++)
+  {
+    for(int j=0; j<6; j++)
+    {
+      asientos[j][i] = 0;
+    }
+  }
+}
 
 int main(void) {
+  iniciar_matriz();
   while(1)
   {
    printf("Ingrese Numero de Vuelo (5 caracteres): ");
