@@ -6,8 +6,21 @@ char vuelo[5] = " ";
 
 
 int main(void) {
-  printf("Ingrese Numero de Vuelo (5 caracteres): ");
-  scanf("%s", vuelo);
+  while(1)
+  {
+   printf("Ingrese Numero de Vuelo (5 caracteres): ");
+   scanf("%s", vuelo);
+   if(strlen(vuelo)!=5)
+   {
+    printf("\033[0;31m"); 
+    printf("Tiene que ingresar un vuelo de 5 caracteres\n\n");
+    printf("\033[0m"); 
+   }
+   else
+   {
+     break;
+   }
+  }
   int menu = 0;
   while(1)
   {
@@ -22,7 +35,7 @@ int main(void) {
     printf("------------------------------------------------------\n");
     printf("\033[0m"); 
     //--------------------------------------------------------------------
-    
+
   //Opcion----------------------------------------------------------------
     printf("Ingrese Opcion: ");
     scanf("%d",&menu);
