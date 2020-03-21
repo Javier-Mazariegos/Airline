@@ -155,7 +155,24 @@ int main(void) {
        {
          fila = (numero_fila(asiento[1],88))-1;
        }
-       //break;
+        if(asientos[columna][fila] == 0)
+       {
+         printf("\033[1;32m");
+         printf("Asiento '%s' reservado exitosamente!!\n",asiento);
+         printf("------------------------------------------------------\n");
+         printf("\033[0m"); 
+         asientos[columna][fila] =1;
+         enter();
+         break;
+       }
+       else
+       {
+         printf("\033[0;31m");
+          printf("Asiento '%s' ya reservado, ingrese otro asiento\n",asiento);
+          printf("------------------------------------------------------\n\n\n");
+          printf("\033[0m"); 
+          
+       }
       }  
     }
   //----------------------------------------------------------------------
