@@ -3,6 +3,7 @@
 #include <string.h>
 
 char vuelo[5] = " ";
+char name[5] = " ";
 int asientos[6][32];
 
 void iniciar_matriz()
@@ -15,6 +16,19 @@ void iniciar_matriz()
     }
   }
 }
+
+ void enter()
+    {
+      char c = ' ';
+      printf("\nPresione Enter para volver a Menu\n");
+      getchar();
+      if(c == ' ')
+      {
+        getchar();
+      }
+       system("@cls||clear");
+    }
+
 
 int main(void) {
   iniciar_matriz();
@@ -52,6 +66,27 @@ int main(void) {
     printf("Ingrese Opcion: ");
     scanf("%d",&menu);
     printf("\n");
+  //----------------------------------------------------------------------
+  
+
+  //opcion1---------------------------------------------------------------
+    if(menu == 1)
+    {
+      while(1)
+      {
+       char asiento[3] = "";
+       int fila=0;
+       int columna=0;
+       printf("\033[01;33m"); 
+       printf("------------------------------------------------------\n");
+       printf("Vuelo: %s\n\n",vuelo);
+       printf("Ingrese asiento a reservar: ");
+       scanf("%s",asiento);
+       printf("------------------------------------------------------\n");
+       printf("\033[0m"); 
+       break;
+      }  
+    }
   //----------------------------------------------------------------------
   }
   return 0;
