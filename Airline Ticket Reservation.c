@@ -28,6 +28,68 @@ void iniciar_matriz()
       }
        system("@cls||clear");
     }
+int numero_columna(char columna)
+{
+ if(columna == 'A')
+ {
+   return 0;
+ }
+ else if(columna == 'B')
+ {
+   return 1;
+ }
+ else if(columna == 'C')
+ {
+   return 2;
+ }
+ else if(columna == 'D')
+ {
+   return 3;
+ }
+ else if(columna == 'E')
+ {
+   return 4;
+ }
+ else if(columna == 'F')
+ {
+   return 5;
+ }
+ else
+ {
+   return 6;
+ }
+}
+
+int numero_fila(int numero1, int numero2)
+{
+  int numero=0;
+  for(int i=48; i<=57; i++)
+  {
+   
+    if(i == numero1)
+    {
+      numero1 = numero;
+    }
+
+    if(i == numero2)
+    {
+      numero2 = numero;
+    }
+     numero++;
+  }
+
+  if(numero2 != 88)
+  {
+    numero1 = numero1 *10;
+    numero1 = numero1 + numero2;
+   
+    return numero1;
+  }
+  else
+  {
+    return numero1;
+  }
+}
 
 
 int main(void) {
@@ -84,7 +146,16 @@ int main(void) {
        scanf("%s",asiento);
        printf("------------------------------------------------------\n");
        printf("\033[0m"); 
-       break;
+       columna = numero_columna(asiento[0]);
+       if(strlen(asiento) != 2)
+       {
+         fila = (numero_fila(asiento[1], asiento[2]))-1;
+       }
+       else
+       {
+         fila = (numero_fila(asiento[1],88))-1;
+       }
+       //break;
       }  
     }
   //----------------------------------------------------------------------
