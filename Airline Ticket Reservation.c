@@ -18,17 +18,77 @@ void iniciar_matriz()
   }
 }
 
- void enter()
-    {
-      char c = ' ';
-      printf("\nPresione Enter para volver a Menu\n");
+void enter()
+{
+    char c = ' ';
+    printf("\nPresione Enter para volver a Menu\n");
+    getchar();
+    if(c == ' ')
+     {
       getchar();
-      if(c == ' ')
+     }
+    system("@cls||clear");
+}
+
+char* letra_columna()
+{
+   for(int i=0; i<32; i++)
+  {
+    for(int j=0; j<6; j++)
+    {
+      if(asientos[j][i] == 0)
       {
-        getchar();
+        if(j==0)
+        {
+          return "A";
+        }
+        
+        if(j ==1)
+        {
+          return "B";
+        }
+
+         if(j==2)
+        {
+          return "C";
+        }
+        
+        if(j ==3)
+        {
+          return "D";
+        }
+
+         if(j==4)
+        {
+          return "E";
+        }
+        
+        if(j ==5)
+        {
+          return "F";
+        }
+
       }
-       system("@cls||clear");
     }
+  }
+  return "No hay asientos disponibles";
+}
+
+int numerodefila()
+{
+    for(int i=0; i<32; i++)
+  {
+    for(int j=0; j<6; j++)
+    {
+      if(asientos[j][i] == 0)
+      {
+        return i+1;
+      }
+    }
+  }
+  return 0;
+}
+
 int numero_columna(char columna)
 {
  if(columna == 'A')
@@ -66,7 +126,6 @@ int numero_fila(int numero1, int numero2)
   int numero=0;
   for(int i=48; i<=57; i++)
   {
-   
     if(i == numero1)
     {
       numero1 = numero;
@@ -176,6 +235,9 @@ int main(void) {
        {
          printf("\033[0;31m");
           printf("Asiento '%s' ya reservado, ingrese otro asiento\n",asiento);
+          printf("\033[0;32m");
+          printf("Sugerido: %s%d\n",letra_columna(),numerodefila());
+          printf("\033[0;31m");
           printf("------------------------------------------------------\n\n\n");
           printf("\033[0m"); 
           
