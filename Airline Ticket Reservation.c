@@ -217,6 +217,27 @@ int main(void) {
       enter();
    }
   //----------------------------------------------------------------------
+  //Opcion3---------------------------------------------------------------
+    if(menu ==3)
+    {
+      printf("\033[1;36m");
+      printf("############### RESUMEN ###############\n");
+      float reservados=0;
+      double libres=0;
+
+       for(int i=0; i<32; i++)
+       {
+        for(int j=0; j<6; j++)
+        {
+         reservados += asientos[j][i];
+        }
+       }
+       printf("Reservados: %.0f/32 [%.1f]\n",reservados, (reservados/32) *100);
+       printf("Libres: %.0f/32 [%.1f]\n\n",32-reservados, ((32-reservados)/32) *100);
+       printf("\033[0m");
+       enter();
+    }
+  //----------------------------------------------------------------------
   
   }
   return 0;
