@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 char vuelo[5] = " ";
 char name[5] = " ";
@@ -146,7 +147,7 @@ int main(void) {
        scanf("%s",asiento);
        printf("------------------------------------------------------\n");
        printf("\033[0m"); 
-       columna = numero_columna(asiento[0]);
+       columna = numero_columna(toupper(asiento[0]));
        if(strlen(asiento) != 2)
        {
          fila = (numero_fila(asiento[1], asiento[2]))-1;
@@ -176,6 +177,47 @@ int main(void) {
       }  
     }
   //----------------------------------------------------------------------
+  //OPCION2---------------------------------------------------------------
+   if(menu == 2)
+   {
+     printf("\033[1;36m"); 
+      printf("|    | A | B | C | D | E | F |\n");
+      printf("-----------------------------\n");
+      for(int i=0; i<32; i++)
+      {
+        if(i<9)
+        {
+           printf("| %d  ",i+1);
+        }
+        else
+        {
+          printf("| %d ", i+1);
+        }
+      
+       for(int j=0; j<6; j++)
+       {
+          if(asientos[j][i] == 1)
+          {
+            printf("| ");
+            printf("\033[0;31m"); 
+            printf("%d ",asientos[j][i]);
+            printf("\033[1;36m");
+          }
+          else
+          {
+            printf("\033[1;36m");
+           printf("| %d ",asientos[j][i]);
+          }
+
+       }
+       printf("|");
+       printf("\n");
+      }
+      printf("\033[0m");
+      enter();
+   }
+  //----------------------------------------------------------------------
+  
   }
   return 0;
 }
