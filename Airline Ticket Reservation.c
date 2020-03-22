@@ -137,7 +137,7 @@ int main(void) {
     {
       while(1)
       {
-       char asiento[3] = "";
+       char asiento[5] = "";
        int fila=0;
        int columna=0;
        printf("\033[01;33m"); 
@@ -147,6 +147,12 @@ int main(void) {
        scanf("%s",asiento);
        printf("------------------------------------------------------\n");
        printf("\033[0m"); 
+       if(strcmp(asiento,"menu") == 0)
+        {
+          system("@cls||clear");
+          break;
+        }
+
        columna = numero_columna(toupper(asiento[0]));
        if(strlen(asiento) != 2)
        {
@@ -238,6 +244,13 @@ int main(void) {
        enter();
     }
   //----------------------------------------------------------------------
+
+  //Opcion4----------------------------------------------------------------
+    if(menu == 4)
+    {
+      break;
+    }
+  //-----------------------------------------------------------------------
   
   }
   return 0;
